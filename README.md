@@ -1,11 +1,12 @@
-Fine-Tuning Llama 2 on Google Colab Using PEFT and QLoRA
-This guide walks through fine-tuning the Llama 2 model using parameter-efficient fine-tuning (PEFT) techniques, specifically LoRA and QLoRA, on a Google Colab instance. Due to limited VRAM in free Colab sessions, we’ll use 4-bit precision for training to make the process feasible.
+# Fine-Tuning Llama 2 on Google Colab Using PEFT and QLoRA
 
-Requirements
+This guide walks through fine-tuning the Llama 2 model using parameter-efficient fine-tuning (PEFT) techniques, specifically **LoRA** and **QLoRA**, on a Google Colab instance. Due to limited VRAM in free Colab sessions, we’ll use 4-bit precision for training to make the process feasible.
+
+## Requirements
+
 Ensure the following libraries are installed:
 
-bash
-Copy code
+```bash
 pip install peft transformers accelerate bitsandbytes
 Since Google Colab offers a 15GB GPU (barely enough to store Llama 2–7B’s weights), using parameter-efficient fine-tuning (PEFT) techniques like LoRA or QLoRA is essential to reduce the computational cost.
 
@@ -53,4 +54,3 @@ Copy code
 Notes
 VRAM Considerations: Keep in mind the overhead due to optimizer states, gradients, and forward activations when running the training.
 Limited Colab Resources: Due to the limited GPU resources available in free Google Colab, consider optimizing the model as much as possible using lower precision techniques like 4-bit quantization.
-
