@@ -1,5 +1,5 @@
 Fine-Tuning Llama 2 on Google Colab Using PEFT and QLoRA
-This guide walks through fine-tuning the Llama 2 model using the parameter-efficient fine-tuning (PEFT) techniques, specifically LoRA and QLoRA, on a Google Colab instance. Due to limited VRAM in free Colab sessions, we’ll use 4-bit precision for training to make the process feasible.
+This guide walks through fine-tuning the Llama 2 model using parameter-efficient fine-tuning (PEFT) techniques, specifically LoRA and QLoRA, on a Google Colab instance. Due to limited VRAM in free Colab sessions, we’ll use 4-bit precision for training to make the process feasible.
 
 Requirements
 Ensure the following libraries are installed:
@@ -32,13 +32,17 @@ training_args = TrainingArguments(
     fp16=True,  # Enable 16-bit precision training for better performance
 )
 Steps for Fine-Tuning
-Prepare Dataset: Download and load the dataset using datasets from Hugging Face.
+Prepare Dataset:
+Download and load the dataset using datasets from Hugging Face.
 
-Set Up Model with PEFT: Use PEFT to freeze most weights and train only specific layers.
+Set Up Model with PEFT:
+Use PEFT to freeze most weights and train only specific layers.
 
-Use 4-bit Quantization: QLoRA enables model training at 4-bit precision, significantly reducing the memory required to store and update the model’s parameters.
+Use 4-bit Quantization:
+QLoRA enables model training at 4-bit precision, significantly reducing the memory required to store and update the model’s parameters.
 
-Train: Run training on the available GPU, keeping track of the logging steps and training loss.
+Train:
+Run training on the available GPU, keeping track of the logging steps and training loss.
 
 Custom Prompts
 You can pass custom prompts to the fine-tuned model using the following format:
@@ -49,3 +53,4 @@ Copy code
 Notes
 VRAM Considerations: Keep in mind the overhead due to optimizer states, gradients, and forward activations when running the training.
 Limited Colab Resources: Due to the limited GPU resources available in free Google Colab, consider optimizing the model as much as possible using lower precision techniques like 4-bit quantization.
+
